@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>tabla de multiplicar</title>
+    </head>
+    <body >
+        <script>
+var nr;
+nr=prompt('Ingrese un numero(1-10)','');
+nr=parseInt(nr);
+
+document.write("<table border='1'>");
+
+var x=0;
+
+for (x = 1; x <= 10; x++)
+{
+	tabel=nr*x;
+	document.write("<tr><td>");
+	document.write(nr+"x"+x+"="+ tabel + "<br>");
+	document.write("</td></tr>");
+}
+
+document.write("</table>");
+            </script>
+
+
+    </body>
+</html>
