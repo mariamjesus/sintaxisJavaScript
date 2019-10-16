@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>ejercicio 5</title>
+    </head>
+    <body>
+        <script>
+            var edad
+            var padron;
+            edad=prompt("que edad tienes");
+            edad= parseInt(edad);
+            padron=prompt("esta empadronado");
+            document.write(padron);
+            if(padron=="no" && padron=="NO"){
+                if(edad<16){
+                var precio=60-(60*0.20);
+                document.write(precio);
+                }else if(edad<18){
+                    var precio=60-(60*0.15);
+                    document.write(precio);
+                }else if(edad>18 && edad<65){
+                    var precio=60;
+                    document.write(precio);
+                }else if (edad>65){
+                    var precio=60-(60*0.50);
+                    document.write(precio);
+                }//end if
+            }else if(padron=="si" && padron=="SI"){
+                if(edad<16){
+                var precioEmp=60-(60*0.30);
+                document.write(precio);
+                }else if(edad<18){
+                    var precio=60-(60*0.20);
+                    document.write(precio);
+                }else if(edad>18 && edad<65){
+                    var precio=60-(60*0.05);
+                    document.write(precio);
+                }else if (edad>65){
+                    var precio=60-(60*0.60);
+                    document.write(precio);
+                }//end if
+            }
+        </script>
+    </body>
+</html>
