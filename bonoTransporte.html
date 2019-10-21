@@ -10,7 +10,7 @@
             edad= parseInt(edad);
             padron=prompt("esta empadronado");
             document.write(padron);
-            if(padron=="no" && padron=="NO"){
+            if(padron=="no" || padron=="NO"){
                 if(edad<16){
                 var precio=60-(60*0.20);
                 document.write(precio);
@@ -24,7 +24,7 @@
                     var precio=60-(60*0.50);
                     document.write(precio);
                 }//end if
-            }else if(padron=="si" && padron=="SI"){
+            }else if(padron=="si" || padron=="SI"){
                 if(edad<16){
                 var precioEmp=60-(60*0.30);
                 document.write(precio);
