@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>ejercicio 5</title>
+    </head>
+    <body>
+        <script>
+            var topping;
+            var heladobasic=1.90;
+            opcion=prompt(" quieres helado con topping");
+
+            if (opcion=="si" || opcion=="SI"){
+
+                topping=prompt("indica el tipo de topping para añadir");
+
+                switch(topping){
+                    case "oreo":
+                        heladoFinal= 1.90+1;
+                        document.write("el helado final con oreo vale: " +heladoFinal + "€");
+                        break;
+                    case "kitkat":
+                        heladoFinal=1.90+1.50;
+                        document.write("el helado final con kitkat vale: " + heladoFinal + "€");
+                        break;
+                    case "brownie":
+                        heladoFinal=1.90+0.75;
+                        document.write("el helado final con brownie vale: " + heladoFinal + "€");
+                        break;
+                    case "lacasitos":
+                        heladoFinal=1.90+0.95;
+                        document.write( "el helado final con lacasitosale: "+ heladoFinal + "€");
+                        break;
+                    default:
+                        document.write("no existe ese topping");
+                }//end switch
+            }else{
+                document.write("el helado final sin topping vale: "+heladobasic + "€");
+            }
+        </script>
+    </body>
+
+</html>
