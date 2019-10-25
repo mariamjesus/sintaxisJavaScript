@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <h1>Ejer 11 Arrays</h1>
+        <link rel=StyleSheet href="css/main.css" title="Contemporaneo"/>
+    </head>
+    <body>
+        <p>Apartado max, min y media de array enteros</p>
+            <script>
+
+                var enteros=[8,5,4,1,2,7,11,20,1];//array entero
+
+                var mayor=Math.max.apply(null,enteros);// sacar max array
+                document.write("el mayor del array es: " + mayor + "<br>");
+
+                var menor=Math.min.apply(null, enteros);
+                document.write("el menor del array es: " + menor+ "<br>");
+
+                var media=Math.abs.apply(null, enteros);
+                document.write("la media del array es: " + media+ "<br>");
+            </script>
+        <p>Apartado concatenar dos arrays misma longitud</p>
+        <p id="demo"></p>
+
+            <script>
+                var  text, fLenA,fLenB, i;
+                var A=["A0","A1","A2","A3","A4"];
+                var B=["B0","B1","B2","B3","B4"];
+                fLenA = A.length;
+                fLenB = B.length;
+
+                text = "<ul>";
+                for (i = 0; i < fLenA; i++) {
+               // text += "<li>" + A[i] + "</li>";
+                    for (j = 0; j < fLenB; j++) {
+                    text +="<li>" + A[i] + "," + B[j] + ","+ "</li>" ;
+                    }
+
+                }
+                text += "</ul>";
+
+                document.getElementById("demo").innerHTML = text;
+            </script>
+        <p>Apartado concatenar dos arrays diferente longitud</p>
+            <script>
+            </script>
+        <p>ordenar array metodo burbuja</p>
+        <script>
+                function burbuja(miArray){
+                    for(var i=1;i<miArray.length;i++) {
+                        for(var j=0;j<(miArray.length-i);j++) {
+                            if(miArray[j]>miArray[j+1]) {// comparo los arrays
+                                k=miArray[j+1];
+                                miArray[j+1]=miArray[j];
+                                miArray[j]=k;
+                            }//end if
+                        }//end for j
+                    }//end for i
+                    return miArray;
+                }//end function
+
+                miArray=Array(5,9,4,7,3,8,2,1,6);
+
+                document.write("Valores Iniciales<br>");
+                for(var i=0;i<miArray.length;i++) { // for para recorrer y mostrar array inicial
+                    document.write(miArray[i]+",");
+                }//end for i
+                    document.write("<br>");
+                arrayB=burbuja(miArray);// array nuevo donde aplico function burbuja
+
+                document.write("Valores ordenados<br>");
+                for(i=0;i<arrayB.length;i++) {  //for imprimir array nuevo ordenado
+                    document.write(arrayB[i]+ ",");
+                }//end for i
+                </script>
+    </body>
+</html>
