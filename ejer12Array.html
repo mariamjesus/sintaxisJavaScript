@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <h1>Ejer 11 Arrays</h1>
+        <link rel=StyleSheet href="css/main.css" title="Contemporaneo"/>
+
+    </head>
+    <body>
+            <form id="formulario" method="Post">
+                Introduce texto: </br>
+                <input type="text" id="texto"/>
+                <input type="button" name="enviar" value="Enviar" onclick="recibir();"/><br>
+                <p id="txt"></p>
+                El numero de palabras es:<p id="ejer1"></p>
+                La primera palabra es:   <p id="ejer2"></p>
+                La ultima palabra es:   <p id="ejer3"></p>
+                Las palabras colocadas en orden inverso,unidas por -   <p id="ejer4"></p>
+                Las palabras ordenadas de la a la z. <p id="ejer5"></p>
+                Las palabras ordenadas de la z a la a. <p id="ejer6"></p>
+            </form>
+
+            <script>
+                 function recibir(){
+                    var valor = document.getElementById("texto").value;
+                    var frase=valor.split(" ");
+                    document.getElementById("txt").innerHTML=frase;
+                    document.getElementById("ejer1").innerHTML = frase.length;
+                    document.getElementById("ejer2").innerHTML =  frase[0];
+                    var ultimo = frase[frase.length - 1];
+                    document.getElementById("ejer3").innerHTML =  ultimo;
+                    var inverso= frase.reverse(); //dar vuelta al array, orden inverso
+                    document.getElementById("ejer4").innerHTML =inverso;
+                    var ordenAlfa= frase.sort(); //ordenar alfabeticamente
+                    document.getElementById("ejer5").innerHTML = ordenAlfa;
+                    // ordenar de z a la a
+                    document.getElementById("ejer6").innerHTML=ordenAlfa.reverse();
+
+
+                }//end function recibir
+
+                             </script>
+    </body>
+</html>
