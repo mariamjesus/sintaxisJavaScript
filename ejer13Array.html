@@ -2,10 +2,17 @@
     <head>
         <h1>Ejer 13 Fechas</h1>
         <link rel=StyleSheet href="css/main.css" title="Contemporaneo"/>
+        <title>Ejer 13: sacasr Repetidos de un array</title>
 
     </head>
     <body>
-    <p id="demo"></p>
+        Introduce un número: <br/>
+        <input type="text" id="num" value="" placeholder="Entero" onfocus="cleanData()"/>
+        <button id="addButton" onclick="addNumber(document.getElementById('num'));">Añade número</button>
+
+        <br/><br/>
+
+        <p id="resultado"></p>
     <script src="js/ejer13Array.js"></script>
     </body>
 </html>
