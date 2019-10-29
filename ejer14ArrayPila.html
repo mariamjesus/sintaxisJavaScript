@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <h1>Ejer 14 Array Pilas</h1>
+        <link rel=StyleSheet href="css/main.css" title="Contemporaneo"/>
+
+    </head>
+    <body>
+
+            introduce un número:
+            <input type="text" id="num" name="numero"/>
+            <button id="anadir" type="button" name="anadir" value="anadir" onclick="anadir(document.getElementById('num').value)">anadir numero</button>
+            <button id="consumir"  type="button" name="consumir" value="consumir" onclick="consumir(document.getElementById('num').value);">consumir numero</button>
+            <button id="colar" type="button"  name="colar" value="colar" onclick="colar(document.getElementById('num').value);">colar numero</button>
+            <p id="demo"></p>
+            <p id="demo1"></p>
+
+    <script>
+     function anadir(num){
+         var num=parseInt(num);
+
+        document.getElementById("demo").innerHTML=num;
+
+
+        while (num >=0) {
+            var pila=[11,12,13];
+            document.getElementById("demo").innerHTML=pila;
+            pila.push(num); //añado el elemento
+            document.getElementById("demo1").innerHTML=pila;
+        } //end while
+     //   document.getElementById("demo1").innerHTML=pila;
+
+     }
+
+
+
+     function consumir(num){
+        var num=parseInt(num);
+        while (num >=0) {
+            var pila=[11,12,13];
+            document.getElementById("demo").innerHTML=pila;
+            pila.push(num); //añado el elemento
+            document.getElementById("demo1").innerHTML=pila;
+        }//end while
+
+     }
+     function colar(){
+
+         var num=parseInt(num);
+        while (num >=0) {
+            var pila=[11,12,13];
+            document.getElementById("demo").innerHTML=pila;
+            pila.unshift(num); //añado el elemento
+            document.getElementById("demo1").innerHTML=pila;
+        }//end while
+     }
+    </script>
+    </body>
+</html>

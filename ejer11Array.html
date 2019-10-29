@@ -22,23 +22,20 @@
         <p id="demo"></p>
 
             <script>
-                var  text, fLenA,fLenB, i;
+                var  result, fLenA,fLenB, i;
                 var A=["A0","A1","A2","A3","A4"];
                 var B=["B0","B1","B2","B3","B4"];
                 fLenA = A.length;
                 fLenB = B.length;
 
-                text = "<ul>";
-                for (i = 0; i < fLenA; i++) {
-               // text += "<li>" + A[i] + "</li>";
-                    for (j = 0; j < fLenB; j++) {
-                    text +="<li>" + A[i] + "," + B[j] + ","+ "</li>" ;
-                    }
 
+                for (i = 0; i < fLenB; i++) {
+                    result[i*2]=fLenA[i];
+                    result[i*2+1]=fLenA[i];
                 }
-                text += "</ul>";
 
-                document.getElementById("demo").innerHTML = text;
+
+                document.getElementById("demo").innerHTML = result;
             </script>
         <p>Apartado concatenar dos arrays diferente longitud</p>
             <script>
