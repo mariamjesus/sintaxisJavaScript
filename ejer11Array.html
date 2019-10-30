@@ -19,23 +19,22 @@
                 document.write("la media del array es: " + media+ "<br>");
             </script>
         <p>Apartado concatenar dos arrays misma longitud</p>
-        <p id="demo"></p>
-
+        Array 1: <p id="demo1"></p>
+        Array 2: <p id="demo2"></p>
             <script>
-                var  result, fLenA,fLenB, i;
-                var A=["A0","A1","A2","A3","A4"];
-                var B=["B0","B1","B2","B3","B4"];
-                fLenA = A.length;
-                fLenB = B.length;
 
+                var array1=[23,88,44,2,10,50];
 
-                for (i = 0; i < fLenB; i++) {
-                    result[i*2]=fLenA[i];
-                    result[i*2+1]=fLenA[i];
-                }
+                var array2=[10,64,50,4,70,30];
+                var arrayResult=[]; // para guardar el que se genera al ir intercalando los valores de ambos array
+                for (let i = 0; i<array2.length; i++){ //Bucle para recorrer los enteros
+                    arrayResult[i*2] = array1[i]; //El índice del algoritmo se va actulizando con la variable del bucle.
+                     arrayResult[i*2+1] = array2[i]; //Se simplifica utilizando la función push de array.
+                 }//end for
+                 document.getElementById("demo1").innerHTML=array1;
+                 document.getElementById("demo2").innerHTML=array2;
+                 document.getElementById("resultado").innerHTML=arrayResult;
 
-
-                document.getElementById("demo").innerHTML = result;
             </script>
         <p>Apartado concatenar dos arrays diferente longitud</p>
             <script>

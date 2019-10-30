@@ -21,12 +21,11 @@
         document.getElementById("demo").innerHTML=num;
 
 
-        while (num >=0) {
             var pila=[11,12,13];
             document.getElementById("demo").innerHTML=pila;
             pila.push(num); //añado el elemento al final
             document.getElementById("demo1").innerHTML=pila;
-        } //end while
+
      //   document.getElementById("demo1").innerHTML=pila;
 
      }
@@ -35,23 +34,23 @@
 
      function consumir(num){
         var num=parseInt(num);
-        while (num >=0) {
+
             var pila=[11,12,13];
             document.getElementById("demo").innerHTML=pila;
             pila.pop(num); //quito elemento
             document.getElementById("demo1").innerHTML=pila;
-        }//end while
+
 
      }
      function colar(){
 
          var num=parseInt(num);
-        while (num >=0) {
+
             var pila=[11,12,13];
             document.getElementById("demo").innerHTML=pila;
             pila.unshift(num); //añado el elemento al principio
             document.getElementById("demo1").innerHTML=pila;
-        }//end while
+
      }
     </script>
     </body>
