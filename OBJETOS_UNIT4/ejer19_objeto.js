@@ -14,8 +14,6 @@ Manager.prototype=new Employee; //que hereda de employee
 
 function WorkBee(){
     this.proyects=["h"];
-    var datos=this.proyects;
-    console.log(datos);
 }//end workBee
 WorkBee.prototype=new Employee;// hereda de employee
 
@@ -33,8 +31,10 @@ Engineer.prototype=new WorkBee;
 
 
 function imprimir(){
-    var sales1=new SalesPerson();
-    console.log(sales1.dept +" " + sales1.quota+ " "+ sales1.proyects +" "+ sales1.name);
-    //document.getElementById('result').innerHTML=(this.name+" " +this.name);
+    var sales1=new SalesPerson();//creo instancia de un objeto
+    console.log("salesPerson tiene: "+sales1.dept +" " + sales1.quota+ " "+ sales1.proyects +" "+ sales1.name);
+
+    var engineer1=new Engineer();
+    console.log("Engineer tiene: " +engineer1.dept+" " + engineer1.proyects+" "+engineer1.name);
 }//end
 
