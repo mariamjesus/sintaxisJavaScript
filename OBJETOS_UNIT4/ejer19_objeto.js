@@ -1,25 +1,33 @@
-function Employee(){
-    this.name="asdfdsf";
-    this.dept="general";
-    var datos=this.name + this.dept;
-    console.log(datos);
+function Employee(name,dept){
+    this.name=name || "";
+    this.dept=dept || "general";
+    this.toString=function(){
+      return this.name + this.dept;
+    }
 }//end employee
 
 function Manager(){
     this.reports=[];
-    var datos=this.proyects;
-    console.log(datos);
+    this.toString=function(){
+      return Employee.prototype.toString(this.reports);
+    }
 }//end manager
 Manager.prototype=new Employee; //que hereda de employee
 
 function WorkBee(){
-    this.proyects=["h"];
+    this.proyects=[];
+    this.toString=function(){
+      return  this.proyects;
+    }
 }//end workBee
 WorkBee.prototype=new Employee;// hereda de employee
 
 function SalesPerson(){
     this.dept="sales";
     this.quota=100;
+    this.toString=function(){
+      return Employee.prototype.toString.
+    }
 }//end SalesPerson
 SalesPerson.prototype=new WorkBee;
 
