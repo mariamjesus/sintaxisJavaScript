@@ -16,6 +16,8 @@ try{
       throw "pila llena, capacidad de 10";
     }
       pila.push(num);
+      mensaje.style.color="blue";
+      mensaje.innerHTML=num;
 
  } catch (err){//lo que manda el throw
     mensaje.style.color="red"; //sale en rojo
@@ -35,6 +37,9 @@ try{
     throw "no se pueden sacar elementos, pila a 0";
   }
     pila.pop(num); //añado el elemento
+    mensaje.style.color="blue";
+    mensaje.innerHTML=num;
+
   } catch (err){//lo que manda el throw
     mensaje.style.color="red"; //sale en rojo
     mensaje.innerHTML="error" + err + "."; // concateno el mensaje y saldra en roojo
