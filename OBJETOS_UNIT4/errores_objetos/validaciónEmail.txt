@@ -1,0 +1,3 @@
+La dirección debe contener un arroba
+Repetición excesiva de puntos o - en el nombre de usuario (no pueden ir más de uno seguidos)
+El dominio debe ser .com .es o .net
