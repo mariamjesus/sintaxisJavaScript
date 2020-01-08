@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REPASO T3 T4</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+    <h1>EJER 2</h1>
+    <p> datos iniciales del array</p><p id="datosini"></p><br>
+    <button onclick="ordenar()">ordenar</button>
+    <script>
+    function ordenar(){
+      var datosIniciales=[100,"Europa",3,"Asia",-5,"America",23,"Africa",32,"Oceania",14,2];
+    document.getElementById("datosini").innerHTML=datosIniciales;
+      var number=new Array(); //para guardar los numeros
+      var palabras=new Array();//para guardar palabras
+       var cont=0;
+          for (var i=0;i< datosIniciales.length;i++){ //recorrer el array inicial
+
+              if( typeof datosIniciales[i]=="number"){ //comparo para saber si es numero
+                  number[cont]=datosIniciales[i];// guardo en nuevo array los numeros
+                  cont++; //aumento contador
+              } else if (typeof datosIniciales[i]=="string") { //comparo para saber si es string
+                  palabras[cont]=datosIniciales[i];
+                  cont++;
+              }//end if
+
+          }//end for
+
+      //ORDENAMOS LOS ARRAYS
+      number=number.sort(function(a, b){return b-a});//para ordenar array los numeros
+      palabras=palabras.sort();//ordenar el array palabras
+      palabras.reverse();
+  console.log(palabras);
+      var ordenado=palabras.concat(number);// unimos ambos array
+      console.log(ordenado);
+      document.getElementById("datosfinales").innerHTML=ordenado;//imprimir
+    }//end function
+    </script>
+    <p> datos ordenados</p>
+    <p id="datosfinales"></p>
+  </body>
+  </html>
