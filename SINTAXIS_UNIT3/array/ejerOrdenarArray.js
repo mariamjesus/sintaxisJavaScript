@@ -6,10 +6,10 @@ var num=new Array();//donde guardo los numeros
 var string=new Array();//donde guardo los numeros
 var cont=0;
 for (var i=0;i<iniciales.length;i++){
-  if(iniciales[i]==typeof("number")){ //comparo para saber si es namber
+  if(typeof iniciales[i]=="number"){ //comparo para saber si es namber
     num[cont]=iniciales[i];
     cont++;
-  } else if (iniciales[i]==typeof("string")) { //comparo para saber si es string
+  } else if ( typeof iniciales[i]=="string") { //comparo para saber si es string
     string[cont]=iniciales[i];
     cont++;
 
@@ -23,4 +23,4 @@ var final=num.concat(string);
 document.write(final);
 }//end ordenar
 
-ordenar();
+
