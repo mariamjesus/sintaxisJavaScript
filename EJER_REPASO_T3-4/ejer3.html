@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REPASO T3 T4</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+    <h1>EJER 3</h1>
+    <button onclick="objetos()">ordenar</button>
+    <script>
+function objetos(){
+        var datos=[
+            {
+            "id": 133,
+            "firstName": "Juan Carlos",
+            "lastName": "Rolón",
+            "email": "Hernn84@hotmail.com"
+            },
+            {
+            "id": 134,
+            "firstName": "César",
+            "lastName": "Jáquez",
+            "email": "Lorena_Delarosa@hotmail.com"
+            },
+            {
+            "id": 135,
+            "firstName": "Leticia",
+            "lastName": "Fuentes",
+            "email": "Santiago56@gmail.com"
+            },
+            {
+            "id": 136,
+            "firstName": "Amancio",
+            "lastName": "Fuentes",
+            "email": "Santiago56@gmail.com"
+            },
+            {
+            "id": 137,
+            "firstName": "Lourdes",
+            "lastName": "Armenta",
+            "email": "Timoteo42@gmail.com"
+            }
+            ];
+
+
+
+             function ordenarObjetos(a, b) { //ordenar por lastName
+              if(a.lastName !=b.lastName){//son diferentes los apellidos
+                    if (a.lastName > b.lastName) {
+                        return 1;
+                    }
+                    if (a.lastName < b.lastName) {
+                        return -1;
+                    }
+                } else{ //son iguales los apellidos,comparar por nombre
+                    if(a.firstName< b.firstName){
+                        return -1;
+                    } else{
+                        return 1;
+                    }
+                }//end if
+
+                };//end function ordenarobjetos
+                datos.sort(ordenarObjetos);
+
+            document.getElementById("result").innerHTML=datos;
+
+            //ARRAYFOREACH() Y METODO TOSTRING
+
+            };//end function objetos
+    </script>
+    <p id="result">ordenado obejtos</p>
+</body>
+</html>

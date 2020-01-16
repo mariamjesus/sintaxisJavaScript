@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 1 - Crear, eliminar y modidicar nodos DOM</title>
+<script type="text/javascript">
+function genera() {
+    //genero los aleatorios
+   var aleatorio1= Math.floor(Math.random() * 11);
+   var aleatorio2= Math.floor(Math.random() * 11);
+
+  //mostrar
+  var para=document.createElement("div"); //creo nuevo nodo elemento
+  var texto1=document.createTextNode(aleatorio1); //creo nuevo nodo texto
+  para.appendChild(texto1); //añado al nodo nuevo el texto nuevo
+  var lista1=document.getElementById("primero"); //select donde pintar en html
+  lista1.appendChild(para); //añado al elemento donde pinto el nodo nuevo con aleatorio texto
+
+  var para2=document.createElement("div");
+  var texto2=document.createTextNode(aleatorio2);
+  para2.appendChild(texto2);
+  var lista2=document.getElementById("segundo");
+  lista2.appendChild(para2);
+
+
+}//end function generar
+
+function compara() {
+ var valor1=document.getElementById("primero");
+ var num1=valor1.firstChild;//coger el primer nodo del div primero, para coger el num
+console.log(num1);
+
+ var valor2=document.getElementById("segundo");
+ var num2=valor2.firstChild;
+ console.log(num2);
+
+var resultado=document.getElementById("resultado");// donde mostrar el resultado
+
+if(num1>num2){
+    console.log(num1);
+    resultado.replaceChild(num1);
+}
+
+
+
+
+
+}//end function comparar
+</script>
+
+<style type="text/css">
+#primero, #segundo, #resultado {width: 150px; height: 150px; border: thin solid silver; background: #F5F5F5; float: left; margin:20px; font-size: 6em; color: #333; text-align: center; padding: 5px; font-family:Arial, Helvetica, sans-serif;}
+#primero p, #segundo p, #resultado p {margin:.2em 0;}
+#resultado {margin-left:1.3em; border-color: black;}
+.clear {clear:both;}
+#compara {margin-left:11em;}
+#genera {font-size:1.2em; margin-left:8em;}
+</style>
+</head>
+
+<body>
+
+<input id="genera" type="button" value=" Genera " onclick="genera()" />
+
+<div id="primero"></div>
+
+<div id="segundo"></div>
+
+<div class="clear"></div>
+
+<input id="compara" type="button" value=" Comparar " onclick="compara()" />
+
+<div id="resultado"></div>
+
+</body>
+</html>
