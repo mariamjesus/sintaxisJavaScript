@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+    <h1>Ventana</h1>
+    <button onclick="abrirVentana()">Nueva ventana</button>
+    <button onclick="cerrarVentana()">cerrar ventana</button>
+    <button onclick="escribirVentana()">escribir en ventana</button>
+
+    <div id="resultado">
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    </div>
+    <script>
+        //https://www.w3schools.com/js/js_window.asp
+        //https://www.w3schools.com/jsref/obj_window.asp
+        var ventana;
+        function pinta(){
+        var w=window.outerWidth;
+        var h=window.outerHeight;
+        document.getElementById("resultado").innerHTML="ancho: " + w + " alto: "+h;
+        }
+        function  abrirVentana (){
+           ventana= window.open("nuevaVentana.html","nueva ventana","resizable=yes, top=500, width=400,height=400");
+        }//end function
+        function  cerrarVentana (){
+         ventana.close();
+        }//end function
+
+        //añadir evento que cuando se esta escalando ventana, pinta
+        window.addEventListener("resize",pinta);
+
+        document.getElementById("demo").innerHTML="protocolo: " + window.location.protocol;
+
+        document.getElementById("demo1").innerHTML="navegation: " + window.navigator.appName;
+        document.getElementById("demo1").innerHTML="navegation: " + window.navigator.product;
+        document.getElementById("demo1").innerHTML="navegation: " + window.navigator.language;
+
+
+        function escribirVentana(){
+            //escribir o pasar datos desde otra ventana
+            ventana.document.getElementById("resultado").innerHTML="mesnaje de nueva ventana";
+
+            //para poner el foco en la nueva ventana asi no se pierda y se ven los cambios
+            ventana.focus();
+        }//end function
+    </script>
+</body>
+</html>

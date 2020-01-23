@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Ejercicio en el que se desplaza un corredor de punto a punto">
+        <title>Pokemon corredor</title>
+
+        <style>
+            *{margin:0;padding:0;box-sizing:border-box;}
+            .contenedor{
+                margin:auto;
+                width:600px;
+                height:300px;
+                position:relative;
+                border:1px solid #000;
+                background:url(runner.jpg) no-repeat 0 0;
+            }
+
+            .corredor{
+                width:60px;
+                height:60px;
+                background:url('charmander.gif') no-repeat 0 0;
+                position:absolute;
+                bottom:0;
+            }
+
+        </style>
+    </head>
+    <body >
+        <div class="contenedor">
+            <div class="corredor"></div>
+        </div>
+
+       <script>
+           window.onload=iniciar;
+           var izq;
+           function iniciar(){
+              setInterval(mover,10);
+             izq=0;
+           }//end function
+
+
+           function mover(){
+               izq++; //aumentar en un pixel el movimiento
+                if(izq<540 ){ //para que no llegue al final de la imagen fondo
+                    document.querySelector(".corredor").style.left=izq + "px";
+                }else{
+                izq=0;
+                }
+           }//end function
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+    <h1>Ventana</h1>
+    <button onclick="EscriVentPadre()">Escribir en ventana padre</button>
+    <div id="resultado">
+    </div>
+    <script>
+        function EscriVentPadre(){
+            //para llamar a la ventana que la creo, la padre
+            window.opener.document.getElementById("demo2").innerHTML="mensaje desde la ventana HIJA";
+            window.opener.focus();//foco en la ventana padre para ver si se escribe o no
+        }//end function
+    </script>
+</body>
+</html>

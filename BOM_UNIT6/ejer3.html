@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+    <div id="ejer3">
+    </div>
+</body>
+<script>
+
+var div=document.getElementById("ejer3");//elemento donde quiero mostrar
+    var ulist=document.createElement("ul"); //creo nuevo nodo ul
+    var li=document.createElement("li"); //creo nuevo dodo li
+    ulist.appendChild(li);//unir nodos de li a ul
+    ulist.lastElementChild.appendChild(document.createTextNode("href: " + location.href));//texto nodo a mostrar
+    ulist.appendChild(document.createElement("li"));//creo otro nuevo li para la lista
+    ulist.lastElementChild.appendChild(document.createTextNode("protocolo: " + location.protocol ));//texto nodo a mostrar
+    ulist.appendChild(document.createElement("li"));//creo otro nuevo li para la lista
+    ulist.lastElementChild.appendChild(document.createTextNode("nombre host: " + location.hostname));//texto nodo a mostrar
+    ulist.appendChild(document.createElement("li"));//creo otro nuevo li para la lista
+    ulist.lastElementChild.appendChild(document.createTextNode("ruta: " + location.pathname));//texto nodo a mostrar
+
+    div.appendChild(ulist); //unir el ul a la div
+</script>
+
+</html>

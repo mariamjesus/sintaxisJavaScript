@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>ejercicio 4 bom</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+    <h1>ejercicio 4 practica de bom t6</h1>
+    <div id="punto1"></div>
+    <h3>punto A</h3>
+    <button onclick="abrirVentana()">Nueva ventana</button>
+    <h3>punto B</h3>
+    <button onclick="cerrarVentana()">cerrar ventana</button><br>
+    <h3>punto C</h3>
+    <button onclick="RecorreUrl()">Url recorrer</button><br>
+
+    <div>
+        <h3>punto D, mover 5 px con cada boton</h3>
+        <button onclick="mover('N')">Mover Arriba</button><br>
+        <button onclick="mover('S')">Mover Abajo</button><br>
+        <button onclick="mover('E')">Mover derecha</button><br>
+        <button onclick="mover('O')">Mover izquierda</button><br>
+    </div>
+
+    <div id="ejerF">
+        <h3>punto F, cuando se salga de la pantalla que siga</h3>
+
+    </div>
+    <button onclick="alertWindow()">alerta</button><br>
+
+</body>
+
+<script>
+   var ventana;
+   //APARTADO A
+    function  abrirVentana (){
+        //comprobar si existe la ventana abierta
+        if(!ventana || ventana.closed){ //si no hay ventana
+            ventana= window.open("","mi ventana"," width=500,height=300, top=300, left=300,toolbar=no, menubar=no,titlebar= yes,location=no");
+            //escribir o pasar datos desde otra ventana
+            ventana.document.write("<h1>titulo prueba write</h1>");
+            //añadir titulo a la ventana
+            ventana.document.title="titulo de prueba";
+
+        } else{
+             //para poner el foco en la nueva ventana asi no se pierda y se ven los cambios
+             ventana.focus();
+        }//end if
+
+    }//end function
+
+    //APARTADO B
+    function  cerrarVentana (){
+        if(ventana || !(ventana.closed)){ //si ventana esta abierta
+            ventana.close();
+        }//end if
+
+    }//end function
+
+    //APARTADO C
+    function RecorreUrl(){
+        //recorrer url
+        var url= window.prompt("url: ","https://www.uclm.es/");
+        if(!ventana || ventana.closed){ //si no hay ventana abierta
+            abrirVentana ();
+        }
+        ventana.location.assign(url); //asignar nueva url
+        ventana.focus();
+    }//end function
+
+    //parte D mover la ventana
+
+    function mover(direction){
+        if(!ventana || ventana.closed){ //si no hay ventana
+            abrirVentana ();
+        } else{
+            document.getElementById("ejerF").innerHTML +=ventana.screenTop + " " + ventana.screenLeft;
+            switch (direction) {
+                case "N":
+                    ventana.moveBy(0,-10);
+                    break;
+                case "S":
+                    ventana.moveBy(0,10);
+                    break;
+                case "E":
+                    ventana.moveBy(10,0);
+                    break;
+                case "O":
+                    ventana.moveBy(-10,0);
+                    break;
+                default:
+                    break;
+            }//end case
+            ventana.focus();
+        }
+    }//end function
+
+
+
+  function alertWindow(){
+    if(!ventana || ventana.closed){ //si no hay ventana
+            abrirVentana ();
+    } //end if
+
+    ventana.location.assign("alert.html");///asignar abrir otra pagina
+    venana.focus();
+
+  }  //end function
+
+  function showAlert(){
+    alert(window.document.title);
+  }//end function
+</script>
+</html>

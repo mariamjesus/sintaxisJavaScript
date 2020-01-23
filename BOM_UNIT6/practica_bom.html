@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+    <h1>Ventana Ejer 1</h1>
+    <button onclick="cerrarVentana()">cerrar ventana</button>
+    <div id="ejer1"></div>
+
+    <div id="ejer2">
+        <h1>Navigation Ejer 2</h1>
+        <div id="cookies"></div>
+        <div id="language"></div>
+        <div id="geolocalizacion"></div>
+        <div id="geolocalizacion2"></div>
+    </div>
+
+</body>
+
+<script>
+    //EJERCICIO 1
+    var w=window.innerWidth;
+    var h=window.innerHeight;
+    document.getElementById("ejer1").innerHTML="ancho de ventana: " + w + " alto de ventana: "+h;
+    var ventana;
+   // ventana= window.open("practica_bom.html","nueva ventana","resizable=yes, top=500, width=400,height=400");
+    function  cerrarVentana (){
+         ventana.close();
+    }//end function
+
+    //EJERCICIO 2
+    //saber si  las cookies estan o no activadas
+    document.getElementById("cookies").innerHTML ="cookies activadas? " + navigator.cookieEnabled;
+    //sacar lenguaje del navegador
+    document.getElementById("language").innerHTML = navigator.language;
+
+    //sacar geolocalizacion con latitud y longitud
+    document.getElementById("geolocalizacion").innerHTML = navigator.geolocation;
+    if ( navigator.geolocation) {
+        /* la geolocalización está disponible */
+         document.getElementById("geolocalizacion").innerHTML ="la geolocalización está disponible";
+      //  navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+         /* la geolocalización NO está disponible */
+       // ulist.appendChild(li);
+      //  ulist.lastElementChild.appendChild(document.createTextNode("la geolocalización NO está disponible"));
+
+    }//end if
+
+
+ /* function showPosition(position){
+    var ulist=document.getElementById("geolocalizacion2").lastElementChild; //ultimo nodo de la lista
+    ulist.appendChild(document.createElement("li"));
+    ulist.lastElementChild.appendChild(document.createTextNode("latitud: "+ position.coords.latitude));
+    ulist.appendChild(document.createElement("li"));
+    ulist.lastElementChild.appendChild(document.createTextNode("longitud: "+ position.coords.longitude));
+
+  }//end function
+*/
+
+
+
+/*
+function ejer2(){
+
+    var div=document.getElementById("resultado");
+    var h2= document.createElement("h2");
+
+    var ulist=document.createElement("ul");
+    var li=document.createElement("li");
+    ulist.appendChild(li);
+    ulist.lastElementChild.appendChild(document.createTextNode(""));
+
+
+}
+*/
+</script>
+</html>
