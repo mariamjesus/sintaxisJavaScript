@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>formulario dom</title>
+<style>
+    :enabled{
+        border: 4px solid red;
+        padding: 5px;
+    }
+
+    :disabled{
+        border: 2px solid white;
+        padding: 5px;
+    }
+
+
+</style>
+</head>
+
+<body>
+    <h2>ejer formulario dom</h2>
+    <form id="group">
+        <input type="checkbox" id="susbcri" name="susbcri"/>Suscribirme al boletion de novedades....<br>
+        <br>
+        <input type="submit" id="guardar" value="Aceptar" disabled/>
+    </form>
+</body>
+    <script>
+        document.getElementById("susbcri").addEventListener("click", activar);
+
+        function activar(){
+
+            document.forms[0].elements["guardar"].disabled=false; //oculto
+        }//end function
+    </script>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>formulario dom</title>
+<style>
+    :enabled{
+        border: 4px solid red;
+        padding: 5px;
+    }
+
+    :disabled{
+        border: 2px solid blue;
+        padding: 5px;
+    }
+
+
+</style>
+</head>
+
+<body>
+    <h2>ejer formulario dom</h2>
+    <form id="grup">
+        <br>
+       grupo1:<input type="radio"  name="grupo" value="one" checked/><br>
+       grupo2:<input type="radio"  name="grupo" value="two" checked/><br>
+       grupo3:<input type="radio"  name="grupo" value="three" checked/><br>
+       <input type="text" id="text1"/>
+       <input type="text" id="text2"/>
+       <input type="text" id="text3"/>
+    </form>
+
+    <script>
+     //se ejecuta nada mas arribar en el navegado
+    window.onload=function(){
+        //para desabilitar los campos en principio
+        document.forms[0].elements['text1'].disabled=true;
+        document.forms[0].elements['text2'].disabled=true;
+        document.forms[0].elements['text3'].disabled=true;
+
+        var radios=document.forms[0].elements["grupo"];//para coger los input radios
+
+        for(let i=0; i<radios.length;i++) {
+            radios[i].onclick=radioClick; //añadir evento onclik a cada radio que tiene el form
+        }//end for
+    }
+
+
+    function radioClick(){
+        switch (this.value) {
+            case "one":
+                document.forms[0].elements["text1"].disabled=false; //oculto
+                document.forms[0].elements["text2"].disabled=true; //habilita
+                document.forms[0].elements["text3"].disabled=true; //oculto
+
+                break;
+            case "two":
+                document.forms[0].elements["text1"].disabled=true;
+                document.forms[0].elements["text2"].disabled=false;
+                document.forms[0].elements["text3"].disabled=true;
+
+                break;
+
+            case "three":
+                document.forms[0].elements["text1"].disabled=true;
+                document.forms[0].elements["text2"].disabled=true;
+                document.forms[0].elements["text3"].disabled=false;
+
+                break;
+
+            default:
+                break;
+        }
+    }//end function
+    </script>
+</body>
+</html>

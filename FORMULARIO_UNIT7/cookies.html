@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>cookies</title>
+<script>
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+         d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+         var decodedCookie = decodeURIComponent(document.cookie);
+         var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+             }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+         }
+        return "";
+    }
+
+ function checkCookie(){
+        //document.cookie="username=mj;  expires=Thu, 01 Jan 2021 12:00:00 UTC; path=/;"
+        //document.cookie="edad=18; path=/;" //caduca cuando se cierra la sesion
+        //document.cookie="edad=18; max-age=234522; path=/;"
+
+        //imprimir cookie
+        document.getElementById("mensaje").innerHTML=document.cookie;
+
+       // var user= prompt("intoruce el nombre de usuario",""); //pedir usuario
+      //  setCookie("username",user, 30); //meter el user en la cookie
+
+/*
+        var user=getCookie("username");//traer de la cookies este valor
+
+        if ( user !="") { //lo ha encontrado
+            alert("bienvenido don " +user);
+        } else{
+           var user= prompt("No USUARIO, intoruce el nombre de usuario",""); //pedir usuario
+           setCookie("username",user, 30); //guardar ese user en
+        }
+
+         document.getElementById("mensaje").innerHTML=document.cookie;
+
+
+*/
+         /////comprobar ese info que no existe en la cookie
+         var ciudad=getCookie("ciudad");//traer de la cookies este valor
+
+        if ( ciudad !="") { //lo ha encontrado
+            alert("ciudad " +ciudad);
+        } else{
+        var ciudad= prompt("No CIUDAD  intoruce el nombre de usuario",""); //pedir usuario
+        setCookie("ciudad",ciudad, 30); //guardar ese user en
+        }
+
+        document.getElementById("mensaje").innerHTML=document.cookie;
+    }//end function
+
+
+</script>
+</head>
+<body onload="checkCookie()">
+    <p id="mensaje"></p>
+</body>
+</html>

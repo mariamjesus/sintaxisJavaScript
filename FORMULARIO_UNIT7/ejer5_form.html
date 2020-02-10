@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>formulario dom ejer5</title>
+</head>
+<body>
+    <form id="formulario" onchange="activar(this.value)">
+        <select id="provincia" >
+            <option value="">provincias</option>
+            <option value="cr">ciudad Real</option>
+            <option value="to">toledo</option>
+            <option value="alb">albacete</option>
+            <option value="cue">cuenca</option>
+            <option value="gua">guadalajara</option>
+        </select>
+        <select id="ciudades"></select>
+
+    </form>
+</body>
+<script>
+
+
+
+function activar(){
+   var select=document.forms[0].elements["provincia"].value;
+   var select2=document.getElementById("ciudades");
+
+ if (select =="cr" || "to" || "alb" || "cue" || "gua") {
+    if(select2.hasChildNodes()){
+        while(select2.firstChild){
+            select2.removeChild(select2.firstChild);
+        }//end while
+    }//end if
+
+
+        switch (select) {
+            case "cr":
+                var option=document.createElement("option");
+                option.setAttribute("id","manzanares");
+                var text=document.createTextNode("manzanares");
+                option.appendChild(text);
+
+                select2.appendChild(option);
+
+                var option=document.createElement("option");
+                option.setAttribute("id","laSolana");
+                var text=document.createTextNode("La solana");
+                option.appendChild(text);
+
+                select2.appendChild(option);
+
+                select=null;
+
+            break;
+
+             case "to":
+              var toledo= new Array("tembleque","mora","madridejos"); //creo array con opciones
+                for (i in toledo){ //lo recoro
+                var opcion = document.createElement("option"); //creo un option
+                opcion.value = toledo[i]; //le añado el value de la posicion del array iterada
+                var texto = document.createTextNode(toledo[i]);//añadir el texto con el valor de posicion array
+                opcion.appendChild(texto);
+                var select2=document.getElementById("ciudades");
+                select2.appendChild(opcion);
+                }
+                select=null; //para limpiar el select
+             break;
+
+            case "alb":
+            var albacete= new Array("hellin","almansa","la roda");
+                for (i in albacete){
+                var opcion = document.createElement("option");
+                opcion.value = albacete[i];
+                var texto = document.createTextNode(albacete[i]);
+                opcion.appendChild(texto);
+                var select2=document.getElementById("ciudades");
+                select2.appendChild(opcion);
+                }
+                select=null;
+            break;
+
+            case "cue":
+            var cuenca= new Array("mota cuervo","cuenca","san clemente");
+                for (i in cuenca){
+                var opcion = document.createElement("option");
+                opcion.value = cuenca[i];
+                var texto = document.createTextNode(cuenca[i]);
+                opcion.appendChild(texto);
+                var select2=document.getElementById("ciudades");
+                select2.appendChild(opcion);
+                }
+                select=null;
+            break;
+
+            case "gua":
+            var guadalajara= new Array("pastrana","trillo","cifuentes");
+                for (i in guadalajara){ //recorrer el array
+                var opcion = document.createElement("option");
+                opcion.value = guadalajara[i];
+                var texto = document.createTextNode(guadalajara[i]);
+                opcion.appendChild(texto);
+                var select2=document.getElementById("ciudades");
+                select2.appendChild(opcion);
+                }
+                select=null;
+            break;
+
+            default:
+                break;
+        }//end switch
+    }//end if
+}//end function
+
+
+</script>
+</html>

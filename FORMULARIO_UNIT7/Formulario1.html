@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Rellena tu CV</title>
+</head>
+
+<body>
+    <h3>Rellena tu CV</h3>
+    <form action="/php/insertar_cv.php" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre</label><br>
+        <input type="text" id="nombre" name="nombre" maxlength="30" required="required"/>
+        <br>
+        <label for="apellidos">Apellidos</label><br>
+        <input type="text" id="apellidos" name="apellidos" maxlength="80" required/>
+        <br>
+        <label for="password">Contraseña</label><br>
+        <input type="password" id="password" name="password" maxlength="10" required/>
+        <br>
+        <label  for="dni">DNI</label maxlength="9" required><br>
+        <input type="text" id="dni" name="dni"/>
+        <br>
+        <br>
+        <label for="sexo">sexo</label><br>
+        <input type="radio" id="hombre" name="sexo" checked/>Nombre<br>
+        <input type="radio" id="mujer" name="sexo"/>Mujer<br>
+        <br>
+        <label for="foto">incluir foto</label>
+        <input type="file" id="foto" name="foto"/>
+        <input type="submit" id="elegir" name="elegir" value="elegir ..."/></input><br>
+        <br>
+        <input type="checkbox" id="susbcri" name="susbcri" checked/>Suscribirme al boletion de novedades....<br>
+        <br>
+        <input type="submit" id="guardar" value="guardar cambios"/>
+        <input type="reset" id="borrar" name="borrar" value="borrar los datos introducidos"/><br>
+ </form>
+
+<script>
+</script>
+
+
+
+
+</body>
+
+</html>

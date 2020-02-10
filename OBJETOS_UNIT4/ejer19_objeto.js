@@ -26,7 +26,7 @@ function SalesPerson(){
     this.dept="sales";
     this.quota=100;
     this.toString=function(){
-      return Employee.prototype.toString.
+      return Employee.prototype.toString;
     }
 }//end SalesPerson
 SalesPerson.prototype=new WorkBee;

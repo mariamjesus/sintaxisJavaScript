@@ -1,135 +1,105 @@
-function Carrito(){
-//  var reg=/\d{6}/;
-  var idCarrito=/\d{6}/;
- var items=new array();
-  var cantidad=new array();
 
-  Object.defineProperties(this,"idCarrito",{
-//metodo get y set
-get: function() {return idCarrito;},
-set: function(x) {idCarrito=x;},
+
+function Carrito(idCarrito,items,cantidades){
+  this.idCarrito=idCarrito || 1;
+  this.items = [items] || [];
+  this.cantidades = [cantidades] || [];
+
+
+  Object.defineProperty(this, "IdCarrito",{ //añadir  propiedad para acceder a dinero porque  es interna
+      //añadir descriptores
+      get: function (){
+        return this.idCarrito +" get fucntion";;
+      },
+      set: function (value){ //para modificar el dinero propiedad
+        idCarrito=value  +" set fucntion";
+      }
+  });
+
+  Object.defineProperty(this, "itemsPro", {
+    get : function() {
+      return items +" get fucntion";
+    },
+    set : function (value) {
+      items = value +" set fucntion";
+    }
+  });
+
+      Object.defineProperty(this, "cantidadesPro", {
+    get : function() {
+      return cantidades;
+    },
+    set : function (value) {
+      cantidades = value;
+    }
+  });
+}//end objet
+
+
+function  Producto(NumSerie,Nombre,Precio,Iva){
+  this.NumSerie=NumSerie || 12 ;
+ this.Nombre=Nombre || "";
+  this.Precio=Precio || 0;
+  this.Iva=Iva || 0;
+
+
+Object.defineProperty(this,"numSerie",{
+    get: function(){
+      return this.NumSerie +"get";},
+
+    set: function(x){
+      this.NumSerie=x + "set"}
 });
 
-}//end
-
-
-function  Producto(){
-  //constructor(NumSerie,Nombre,Precio,Iva)
-    var reg=/\w{8}/;
-    var NumSerie=reg.test(NumSerie);
-    var Nombre=Nombre;
-    var Precio=Precio || 0;
-    var Iva=Iva || 0;
-
-
-Object.defineProperties(this,"NumSerie",{
-  get: function(){return this.NumSerie;},
-  set: function(x){this.NumSerie=x},
+Object.defineProperty(this,"nombre",{
+    get: function(){return this.Nombre+"get nombre";},
+    set: function(x){this.Nombre=x}
 });
 
-Object.defineProperties(this,"Nombre",{
-  get: function(){return this.Nombre;},
-  set: function(x){this.Nombre=x},
+Object.defineProperty(this,"precio",{
+   get: function(){return this.Precio;},
+   set: function(x){this.Precio=x +"set nombre"}
 });
 
-Object.defineProperties(this,"Precio",{
-  get: function(){return this.Precio;},
-  set: function(x){this.Precio=x},
+Object.defineProperty(this,"Iiva",{
+    get: function(){return this.Iva;},
+    set: function(x){this.Iva=x}
 });
+}//end objet producto
 
-Object.defineProperties(this,"Iva",{
-  get: function(){return this.Iva;},
-  set: function(x){this.Iva=x},
-});
-}
+function Camiseta (tal,col){
+  Producto.call(this);
+    this.Talla=tal || "unica";
+    this.Color=col || "negro ";
 
-function Camiseta (){
-  Producto.call(this.Camiseta);
-    var Talla=Talla;
-    var Color=Color || " ";
-
-    Object.defineProperties(this,"Talla",{
-      get: function(){return this.Talla;},
-      set: function(x){this.Talla=x},
+    Object.defineProperty(this,"talla",{
+      get: function(){return this.Talla+ "get";},
+      set: function(x){this.Talla=x +"set"}
     });
 
-    Object.defineProperties(this,"Color",{
-      get: function(){return this.color;},
-      set: function(x){this.color=x},
+    Object.defineProperty(this,"color",{
+      get: function(){return this.Color +"get";},
+      set: function(x){this.Color=x +"set"},
     });
 
   }//end function
+Camiseta.prototype=new Producto;
 
+function myFunction(){
+var carro = new Carrito(5,[55],[6]);
+//carro.idCarrito=5;
+console.log(carro.IdCarrito);
+console.log();
 
-  function Pantalon(){
-    Producto.call(this.Pantalon);
-    var Talla=Talla;
-    var Color=Color || " ";
-    var Ancho=Ancho;
-    var Largo=Largo;
+carro.items=[54];
+console.log(carro.items);
 
-    Object.defineProperties(this,"Talla",{
-      get: function(){return this.Talla;},
-      set: function(x){this.Talla=x},
-    });
+var  prod1=new Producto(1111,"prod1",15,12);
 
-    Object.defineProperties(this,"Color",{
-      get: function(){return this.color;},
-      set: function(x){this.color=x},
-    });
+console.log(prod1.numSerie +prod1.nombre + prod1.precio);
 
-    Object.defineProperties(this,"Ancho",{
-      get: function(){return this.Ancho;},
-      set: function(x){this.Ancho=x},
-    });
-
-    Object.defineProperties(this,"Largo",{
-      get: function(){return this.Largo;},
-      set: function(x){this.Largo=x},
-    });
-  }//end function
-
-function Zapatilla(){
-  var Numero=Numero || "numero";
-  var Tipo=Tipo || " tipo";
-
-  Object.defineProperties(this,"Numero",{
-    get: function(){return this.Numero;},
-    set: function(x){this.Numero=x},
-  });
-
-  Object.defineProperties(this,"Tipo",{
-    get: function(){return this.Tipo;},
-    set: function(x){this.Tipo=x},
-  });
-}//end function
-
-
-function myFunction() {
-  var x = document.getElementById("mySelect").selectedIndex;
-  var y = document.getElementById("mySelect").options;
-  document.getElementById("formProduct").innerHTML="Index: " + y[x].index;//posicion en array
-  document.getElementById("formProduct2").innerHTML= " is " + y[x].text;//texto o valor
-var nombreProducto=y[x].text;
-
-switch (nombreProducto) {
-  case "camiseta":
-    var camisetaNew= new Camiseta;
-    document.getElementById("formProduct2").innerHTML="camiseta";
-   break;
-
-  case "pantalon":
-
-   break;
-
-  case "zapatilla":
-
-   break;
-
-  default:
-    break;
+var cami1=new Camiseta(2222,"cami1",10,89,"XL","blanco");
+console.log(cami1.precio+ "precio");
+console.log(cami1.Talla +"talla");
 }
-
-
-
-}
+//https://medium.com/entendiendo-javascript/entendiendo-los-objetos-en-javascript-3a6d3a0695e5

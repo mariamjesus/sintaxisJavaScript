@@ -4,26 +4,27 @@
   this.total=0;
 }
 
-carrito.prototype.incrementa= function(){ //incremento el total de productos en carrito
+carrito.incrementa= function(){ //incremento el total de productos en carrito
+  console.log("incrementa");
     this.articulos+=1;
     return this.articulos;
 }
-carrito.prototype.total=function(precio){ // voy sumando el total del precio del carrito
+carrito.total=function(precio){ // voy sumando el total del precio del carrito
     this.total=this.total +parseInt(precio);
     return this.total;
 }
 
 var carrito1= new carrito(); //insancio un nuevo objeto de carrito
 
-function carrito(){
+function comprar(){
     //guardo los datos en variables
-    var nombre=document.getElementById('nombre').value; 
+    var nombre=document.getElementById('nombre').value;
     var precio= document.getElementById('precio').value;
     document.getElementById('result').innerHTML="Descrip: " + nombre +" "+ "Precio: " + precio;
-
+    var carrito1= new carrito(); //insancio un nuevo objeto de carrito
     carrito1.incrementa();
     carrito1.total(precio);
-    var mostrar="cantidad" +carrito1.articulos + "total" + carrito1.total;
+    console.log("cantidad" +carrito1.articulos + "total" + carrito1.total);
 
 }
 
@@ -32,4 +33,6 @@ function carrito(){
 
 //v2
 //sacar el nombre precio con € y el total de €
-// eliminar producto 
+// eliminar producto
+https://www.youtube.com/watch?v=nqre9kKFRpc
+https://www.youtube.com/watch?v=0m4e5C-n8H0&t=656s

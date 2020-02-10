@@ -67,14 +67,15 @@ function ordenarArray(a, b) {
 	var x = a.lastName.toLowerCase();
 	var y = b.lastName.toLowerCase();
 	if (x != y) { //Comparamos por apellido si no son iguales.
-		if (x < y) { return -1; } 
+		if (x < y) { return -1; }
 		else { return 1; };
 	} else { //Si son iguales comparamos por nombre.
 		x = a.firstName.toLowerCase();
 		y = b.firstName.toLowerCase();
 		if (x < y) {return -1; }
 		else {return 1; };
-	}
+  }
+
 }
 
 

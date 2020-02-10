@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>cookies form</title>
+
+<script>
+    //FUNCTION SET
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+         d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    //FUNCTION GET
+    function getCookie(cname) {
+        var name = cname + "=";
+         var decodedCookie = decodeURIComponent(document.cookie);
+         var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+             }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+         }
+        return "";
+    }
+
+    function guardarCookie(){
+
+         var usernaC=getCookie("username");//traer de la cookies este valor
+         var nameC=getCookie("name");//traer de la cookies este valor
+         var apellC=getCookie("apellido");//traer de la cookies este valor
+         var edadC=getCookie("edad");
+         var ciudadC=getCookie("ciudad");
+        var prefeC=getCookie("preferencias");
+
+       ///coger valores de los input
+        var username=document.getElementById("username").value;
+       var  name=document.getElementById("name").value;
+       var  apellido=document.getElementById("apellido").value;
+       var edad=document.getElementById("edad").value;
+       var ciudad=document.getElementById("ciudad").value;
+       var prefe=document.getElementById("preferencias").valu
+       //guardar los valores en cookie
+        setCookie("username",username, 30); //guardar ese user en
+        setCookie("name",name,30);
+        setCookie("apellido",apellido,30);
+        setCookie("edad",edad,30);
+        setCookie("ciudad",ciudad,30);
+        setCookie("preferencias",prefe,30);
+        }
+
+        //document.getElementById("mensaje").innerHTML=document.cookie;
+
+
+
+    function checkCookie(){
+        var username=document.getElementById("username").value;
+        //coger valores de la cooki
+        var usernaC=getCookie("username");//traer de la cookies este valor
+         var nameC=getCookie("name");//traer de la cookies este valor
+         var apellC=getCookie("apellido");//traer de la cookies este valor
+         var edadC=getCookie("edad");
+         var ciudadC=getCookie("ciudad");
+        var prefeC=getCookie("preferencias");
+
+
+        if(usernaC!=""){//si es usuario no existe
+            alert("usuario  vacio");
+           ///coger valores de los input
+        var username=document.getElementById("username").value;
+       var  name=document.getElementById("name").value;
+       var  apellido=document.getElementById("apellido").value;
+       var edad=document.getElementById("edad").value;
+       var ciudad=document.getElementById("ciudad").value;
+       var prefe=document.getElementById("preferencias").valu
+       //guardar los valores en cookie
+        setCookie("username",username, 30); //guardar ese user en
+        setCookie("name",name,30);
+        setCookie("apellido",apellido,30);
+        setCookie("edad",edad,30);
+        setCookie("ciudad",ciudad,30);
+        setCookie("preferencias",prefe,30);
+
+
+        } else if ( usernaC ==username) { //si user cookie es igual se rellenan datos en input
+            alert("usuario " +usernaC );
+            //rellenar los valores de ese usuario
+            var nameC=getCookie("name");
+            document.getElementById("name").innerHTML=nameC;
+        }
+
+    }
+</script>
+</head>
+
+<body >
+    <form onload="checkCookie()">
+        <label>Nombre Usuario</label> <br>
+        <input type="text" id="username"/><br>
+
+        <label>Nombre </label> <br>
+        <input type="text" id="name"/><br>
+
+        <label>Apellidos </label> <br>
+        <input type="text" id="apellido"/><br>
+
+        <label>edad </label> <br>
+        <input type="text" id="edad"/><br>
+
+        <label>ciudad </label> <br>
+        <input type="text" id="ciudad"/><br>
+
+        <label>Preferencias </label> <br>
+        <textarea type="text" id="preferencias"></textarea><br>
+
+
+        <label>Constraseña </label> <br>
+        <input type="password" id="password"/><br>
+
+        <label> Confirmar Constraseña </label> <br>
+        <input type="password" id="password1"/><br>
+        <input type="submit" id="guardar" value="Guardar" onclick="checkCookie()"/>
+    </form>
+
+</body>
+
+</html>
+

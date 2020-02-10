@@ -1,79 +1,48 @@
+//Objeto animal
 function Animal(){
-  var patas=4;
-  var peso=15;
-  Object.defineProperties(this,"patas", {
-    //metodos get y set propiedad patas
-   get: function() {return patas; },
-   set: function(x){patas=x + 2; },
-  });
+  Object.defineProperty(this, 'peso', {
+                      value: 30,
+                       configurable:true,
+                        writable:true });
 
-  Object.defineProperties(this,peso,{
-   get: function() {return this.peso; },
-   set: function(x){this.peso=x;}
-  });
-  /*Object.defineProperty(this, dormir,{
-    dormir: {get:function(){return this.dormir+1;}}
-  });*/
-}//end animal
+  Object.defineProperty(this, 'edad', {
+                        value: 10,
+                         enumerable: true,
+                          configurable:true,
+                           writable:true });
 
+  Object.defineProperty(this, 'crecer', {
+            get: function(){
+                return this.edad+1}} )
+  };
 
-function Mamifero(){
-  Animal.call(this.Mamifero);// para heredar
-  var colorPelo="rojo";
-  Object.defineProperties(this,'colorPelo',{
-    get: function() {return this.colorPelo; },
-    set: function(x){this.colorPelo=x; }
-  });
-  Object.defineProperties(this,sangreCaliente,{
+  //Objeto mamifero
+  function Mamifero(){
+      Animal.call(this);
+  Object.defineProperty(this, 'sonido', { value: 'ladrido', configurable:true, writable:true });
+  Object.defineProperty(this, 'num_patas', { value: 4, configurable:true, writable:true });
+  Object.defineProperty(this, 'mover', { get: function(){return "Se mueve en circulos"}} )
+  };
 
-  get: function() {return this.sangreCaliente;} ,
-  set: function(x){this.sangreCaliente=x;}
-  });
-  Object.defineProperty(this, comer,{
-    comer: {get:function(){return this.comer+1;}}
-  });
-}//end manifero
+  //Objeto ave
+  function Ave(){
+      Animal.call(this);
+  Object.defineProperty(this, 'tipo', { value: 'de presa', configurable:true, writable:true });
+  Object.defineProperty(this, 'volador', { value: 'si', configurable:true, writable:true });
+  Object.defineProperty(this, 'volar', { get: function(){return "Vuelo un rato"}} )
+  };
 
-function Felino(){
-  Mamifero.call(this.Felino); //heredar
-  Object.defineProperties(this,garras,{
-    getGarras: {get: function() {return this.garras;} },
-    setGarras: {set: function(x){this.garras=x;} }
-  });
+  //Objeto perro
+  function Perro(){
+      Mamifero.call(this);
+  Object.defineProperty(this, 'raza', { value: 'Labrador', configurable:true, writable:true });
+  Object.defineProperty(this, 'peligroso', { value: 'no', configurable:true, writable:true });
+  Object.defineProperty(this, 'ladrar', { get: function(){return "Guau"}} )
+  };
 
-  Object.defineProperties(this,cuerpoEsbelto,{
-    getCuerpoEsbelto: {get: function() {return this.cuerpoEsbelto;} },
-    setCuerpoEsbelto: {set: function(x){this.cuerpoEsbelto=x;} },
-  });
-
-  Object.defineProperty(this, hacerRuido,{
-    hacerRuido: {get:function(){return this.hacerRuido+1;}}
-  });
-}//end felino
-
-
-function Canino(){
-  Mamifero.call(this.Canino);
-  Object.defineProperties(this.hocicoLargo,{
-    getHocicoLargo: {get: function() {return this.hocicoLargo;} },
-    setHocicoLargo: {set: function(x){this.hocicoLargo=x;} }
-  });
-  Object.defineProperties(this,olfatoAgudo,{
-    getOlfatoAgudo: {get: function() {return this.olfatoAgudo;} },
-    setOlfatoAgudo: {set: function(x){this.olfatoAgudo=x;} }
-  });
-  Object.defineProperty(this,vacunar,{
-    vacunar:{get:function(){return this.vacunar+5}}
-  });
-}//end canino
-
-
-
-
-function tester(){
-//crearnos nuevos objetos
-var ani1=new Animal();
-console.log(ani1.patas);
- document.getElementById('result').innerHTML=ani1.patas;
-
-}//end function
+  //Testeo
+  var perro1=new Perro();
+  var ave1=new Ave();
+  console.log(perro1.ladrar);
+  console.log(ave1.volar);
+  console.log(perro1.crecer);

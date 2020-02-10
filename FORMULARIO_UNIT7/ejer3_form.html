@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>formulario dom</title>
+<style>
+ #refresh{
+     display:none;
+     width: 200px;
+     height: 20px;
+     background-color: yellowgreen;
+ }
+
+</style>
+
+<script>
+    var inprocess=false; //para controlar el valor
+    window.onload= function(){
+        document.forms["picker"].onsubmit=validateSubmit; //pra llamar a esa funcion
+        document.getElementById("refresh").onclick=starOver;
+    }
+
+    function validateSubmit(){
+        if (inprocess) { //si ha sido procesado //por defecto es false por la variable de arriba
+            return;
+        } else {
+            inprocess= true;
+            document.getElementById("guardar").disabled=true;
+
+            document.getElementById("refresh").style.display="block";
+            document.getElementById("message").innerHTML="<p>no se puede volver a enviar el formulario</p>";
+            return false;
+        }
+    }
+
+
+    function starOver(){
+        inprocess=false; //no se ha procesado
+        document.getElementById("guardar").disabled=false;//button ahilitado
+        document.getElementById("refresh").style.display="none";
+        document.getElementById("message").innerHTML="";
+    }
+</script>
+</head>
+
+<body>
+    <h2>ejer formulario dom 3</h2>
+    <form id="picker">
+        group 1:
+        <input type="radio" name="group1"  value="one"/>
+        group 2:
+        <input type="radio" name="group1"  value="two"/>
+        group 3:
+        <input type="radio" name="group1"  value="three"/>
+        <br><br>
+        input 1:
+        <input type="text" id="input1"/>
+        input 2:
+        <input type="text" id="input2"/>
+        input 3:
+        <input type="text" id="input3"/><br>
+        <input type="submit" id="guardar" value="Aceptar" />
+    </form>
+    <div id="refresh"></div>
+    <p>refrescar</p>
+<div id="message"></div>
+</body>
+</html>

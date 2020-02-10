@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>REPASO T3 T4</title>
+  <meta charset="utf-8"/>
+</head>
+<body>
+ <div class ="container py-2">
+     <p class="lead">ingrese usuarios</p>
+     <form>
+         <input id="nombre" type="text" placeholder="ingresa nombre">
+         <input id="edad" type="text" placeholder="ingresa edad">
+         <button id="boton" type="reset" onclick="capturar();">agregar</button>
+     </form>
+ </div>
+
+ <div class="container">
+     <table class="table" id="tabla">
+         <thead class="thead-inverse">
+             <tr>
+                 <th>nombre</th>
+                 <th>edad</th>
+             </tr>
+         </thead>
+     </table>
+ </div>
+
+ <script>
+     function capturar(){
+         /// OBJETO PERSONA
+        function Persona(nombre, edad){
+            this.nombre=nombre;
+            this.edad=edad;
+        }
+
+        //para capturar los valores del form en input
+        var nombCaptura=document.getElementById("nombre").value;
+        var edadCaptura=document.getElementById("edad").value;
+        // console.log(nombCaptura);
+
+        //nuevo objeto
+         nuevPer=new Persona(nombCaptura,edadCaptura);//quito var para que sea variable local
+        console.log(nuevPer);
+        agregar();//llamar a otra funcion
+     }//end
+
+
+
+     //array para guardar los objetos,nuevos objetos de persona desde formulario
+     var bbdd=[];
+     function agregar(){
+        //console.log("captu");
+        bbdd.push(nuevPer);//añadir al array nuevo objetos
+        console.log(bbdd);
+
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+ nuevPer.nombre +'</td><td>'+ nuevPer.edad+'</td></tbody>';
+     }
+
+ </script>
+  </body>
+  </html>

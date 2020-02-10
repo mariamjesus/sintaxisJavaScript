@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>formulario dom</title>
+<style>
+        :enabled{
+        border: 4px solid red;
+        padding: 5px;
+    }
+
+    :disabled{
+        border: 2px solid white;
+        padding: 5px;
+    }
+</style>
+</head>
+<body>
+    <form>
+        Item1: <input type="radio" name="group1"  value="one"/>
+        Item2: <input type="radio" name="group1"  value="two"/>
+        Item3: <input type="radio" name="group1"  value="three"/> <br>
+        <div id="hidden-elements">
+        input 1: <input type="text" id="input1"/>
+        input 2: <input type="text" id="input2"/>
+        input 3: <input type="text" id="input3"/><br>
+        </div>
+        <input type="submit" id="guardar" value="Aceptar" />
+    </form>
+
+    <script>
+        window.onload=function(){
+            document.getElementById("hidden-elements").style.display="none"; //estan no visibles los input
+
+            var radios=document.forms[0].elements["group1"];//tegno todos los radios
+
+            for (let i=0; i<radios.length;i++) {
+                radios[i].onclick=radiosClick; //añadir a cada button un onclick
+            }//end for
+
+
+
+            function radiosClick(){ /// que ocultar o no
+                if (this.value == "two"){  //qcuando select el dos
+                    document.getElementById("hidden-elements").style.display="block"; //oculta
+                } else {
+                    document.getElementById("hidden-elements").style.display="none"; //muestra
+                }//end if
+
+            }//end function
+        }///
+
+    </script>
+</body>
+</html>
