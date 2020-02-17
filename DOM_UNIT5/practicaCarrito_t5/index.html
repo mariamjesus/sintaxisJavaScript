@@ -15,7 +15,7 @@
     <div class="container">
         <h2>Carrito Unit 5 DOM</h2>
         <div class="btn-group">
-          <button type="button" class="btn btn-primary">Listar carrito</button>
+          <button type="button" class="btn btn-primary" onclick="listar()">Listar carrito</button>
           <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
             Añadir producto
@@ -32,8 +32,8 @@
             Eliminar producto
             </button>
             <div class="dropdown-menu">
-                <button type="button" class="btn btn-primary">Ultimo producto</button>
-                <button type="button" class="btn btn-primary">Todos productos</button>
+                <button type="button" class="btn btn-primary" onclick="eliminarUltimo()" >Ultimo producto</button>
+                <button type="button" class="btn btn-primary" onclick="eliminarTodos()">Todos productos</button>
             </div>
           </div>
 
@@ -44,11 +44,21 @@
         <div id="formulario">
         </div>
 
-        <h3>cantidad productos en carrito</h3>
-        <br>
-        <h3>TOTAL € sin IVA</h3>
+        <div id="errores"></div>
+        <div id="numProduc">
+        </div>
         <br>
 
+        <div id="listarPedido">
+            <br>
+        </div>
+        <br>
+        <div id="sinIva">
+             <h3>TOTAL € sin IVA</h3>
+        </div>
+        <div id="totalIva">
+            <h3>TOTAL € con IVA</h3>
+       </div>
     </div>
       <script src="practicaUnit5.js"></script>
 </body>
