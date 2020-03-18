@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>   
+  <head>                            
+    <meta charset="utf-8" /> 
+    <link href="ejer2.css" rel="stylesheet" /> 
+    <script src="ejer2.alumno.js"></script>     
+  </head>                           
+  <body>                            
+    <h1>Ejercicio 2</h1> 
+    <div id="error"></div>
+    <div id="result"></div>
+
+    <div id="layout">
+	    <div>
+			<div class="datagrid" id="datagrid">
+				<table>
+					<thead>
+						<tr><th>Nombre</th>
+						<th>1er apellido</th>
+						<th>2º apellido</th>
+						<th>Especialidad</th></tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+		    </div>	    
+	    </div>
+	    <div>
+			<form class="student_form" action="#" name="student_form"> 
+				<ul> 
+					<li> <h2>Estudiante</h2> <span class="required_notification">* Datos requeridos</span> </li>
+					<li> 
+						<label for="firstname">Nombre:</label> <input type="text" placeholder="Pablo" name="firstname" required="" />
+					</li> 
+					<li> 
+						<label for="lastname1">Primer apellido:</label> <input type="text" name="lastname1" placeholder="López" required=""/>  
+					</li> 
+					<li> 
+						<label for="lastname2">Segundo apellido:</label> <input type="text" name="lastname2" placeholder="López"/>  
+					</li> 				
+					<li> 
+						<label for="specialty">Especialidad:</label> 
+						<select name="specialty">
+							<option value="ASIR">ASIR</option>
+							<option value="DAM">DAM</option>
+							<option value="DAW">DAW</option>
+						</select> 
+					</li> 								
+					<li id="addStudentForm"> <button id="addStudentButton" class="submit" type="submit">Añadir estudiante</button> </li> 
+					<li id="alterStudentForm"> 
+						<input type="button" id="deleteStudentButton" class="submit" style="background: red" value="Eliminar estudiante"/>
+						<input type="button" id="updateStudentButton" class="submit" value="Modificar estudiante"/> 
+					</li> 
+				</ul> 
+			</form>
+	    </div>
+
+    </div>
+	<script src="ejer2.indexed.js"></script> 
+  </body>                           
+</html>

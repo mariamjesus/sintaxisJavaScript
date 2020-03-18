@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Ejemplo Web Storage API</h1>
+    <form name="WebStorage">
+    	<p>Abre la ventana del resultado con el botón.</p>
+    	<button onclick="abrirVentana()">Abrir ventana</button>
+    	<p>Introduce un dato en la caja de texto.</p>
+    	Dato: <input type="text" name="dato" value="" placeholder="Introduce dato"/>
+    	<br/>
+    	<br/>
+    	<input type="button" onclick="almacenarDato()" value="Guardar dato"/>
+    	<div id="resultado">
+    	</div>
+    </form>
+
+    <script>
+      function abrirVentana(){
+            window.open("resultado.html");
+      }
+
+      function almacenarDato(){
+          localStorage.setItem("dato",document.forms["WebStorage"].elements.dato.value);
+          document.getElementById("resultado").innerHTML="valor almacenado" + localStorage.getItem("dato");
+      }
+    </script>
+  </body>
+</html>
